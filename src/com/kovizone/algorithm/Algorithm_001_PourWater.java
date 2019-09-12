@@ -8,7 +8,7 @@ import java.util.List;
  * 若干个水桶，各个水桶为不同的容量（单位：L），第一个水桶是满的<BR/>
  * 需要通过各个水桶互相倒水，倒出所需的水量<BR/>
  * 每次只能倒空或倒满，不能浪费水<BR/>
- * 如8L、5L、3L水桶是满的，需要倒出4L的水在某个容器中<BR/>
+ * 如有8L、5L、3L三个水桶，8L水桶是满的，需要倒出4L的水在某个容器中<BR/>
  *
  * @author KoviChen
  * @version 0.0.1 20190912 KoviChen 新建类
@@ -18,9 +18,9 @@ public class Algorithm_001_PourWater {
     public static void main(String[] args) {
         ArrayList<Bucket> buckets = new ArrayList<>(3);
 
-        buckets.add(new Algorithm_001_PourWater().new Bucket(8, 0));
-        buckets.add(new Algorithm_001_PourWater().new Bucket(5, 5));
-        buckets.add(new Algorithm_001_PourWater().new Bucket(3, 3));
+        buckets.add(new Algorithm_001_PourWater().new Bucket(8, 8));
+        buckets.add(new Algorithm_001_PourWater().new Bucket(5, 0));
+        buckets.add(new Algorithm_001_PourWater().new Bucket(3, 0));
 
         pourWater(4, buckets);
     }
