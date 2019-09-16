@@ -75,7 +75,7 @@ public class Algorithm0004_LintCode0003_DigitCounts {
             flag++;
         }
 
-        for (long i = startNum; i <= n; i++) {
+        for (int i = startNum; i <= n; i++) {
             char[] chars = String.valueOf(i).toCharArray();
             for (char c : chars) {
                 if (Integer.parseInt(String.valueOf(c)) == k) {
@@ -88,6 +88,7 @@ public class Algorithm0004_LintCode0003_DigitCounts {
 
     /**
      * 笨方法，包证可行，用于验证
+     *
      * @param k 需要统计的数
      * @param n 结尾数
      * @return 统计k出现的次数
@@ -98,6 +99,7 @@ public class Algorithm0004_LintCode0003_DigitCounts {
 
     /**
      * 笨方法，包证可行，用于验证
+     *
      * @param k 需要统计的数
      * @param m 起始数
      * @param n 结尾数
