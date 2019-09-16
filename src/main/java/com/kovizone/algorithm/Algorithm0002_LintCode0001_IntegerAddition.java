@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 /**
  * 不使用加运算符进行整形计算
  */
-public class Algorithm_0002_LintCode0001_IntegerAddition {
+public class Algorithm0002_LintCode0001_IntegerAddition {
 
     @Test
     public void test() {

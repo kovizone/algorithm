@@ -15,7 +15,7 @@ import java.util.*;
  * @author KoviChen
  * @version 0.0.1 20190912 KoviChen 新建类
  */
-public class Algorithm_0001_PourWater {
+public class Algorithm0001_PourWater {
 
     private final String CACHE_SPLIT_SYMBOL = "|";
 
