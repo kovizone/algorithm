@@ -21,11 +21,12 @@ public class Algorithm0001_PourWater {
 
     @Test
     public void test() {
-        Bucket[] bucketGroup = new Bucket[3];
+        Bucket[] bucketGroup = new Bucket[4];
 
         bucketGroup[0] = new Bucket(8, 8);
         bucketGroup[1] = new Bucket(5, 0);
         bucketGroup[2] = new Bucket(3, 0);
+        bucketGroup[3] = new Bucket(5, 0);
 
         Set<List<Bucket[]>> resultSet = pourWater(4, bucketGroup);
 
@@ -35,7 +36,7 @@ public class Algorithm0001_PourWater {
     }
 
     /**
-     * 倒水算法，控制台打印倒水过程
+     * 倒水算法
      * @param result 需要求出的水
      * @param bucketGroup 不同容量的水
      * @return 结果集
