@@ -16,7 +16,7 @@ public class Algorithm0004_LintCode0003_DigitCounts {
         int k = 2;
         int n = 15615758;
 
-        long start = 0L;
+        long start;
 
         System.out.println(String.format("k = %d, n = %d", k, n));
         start = System.currentTimeMillis();
