@@ -19,44 +19,36 @@ public class Allgorithm0006_LintCode0518_SuperUglyNum {
 
     @Test
     public void test() {
-        System.out.println(nthSuperUglyNumber(11, new int[]{2, 3, 5}));
+        System.out.println(nthSuperUglyNumber(6, new int[]{2, 7, 13, 19}));
     }
 
     public int nthSuperUglyNumber(int n, int[] primes) {
 
-        Map<Integer, Integer> map = new HashMap<>(16);
-        for (int i = 0; i < primes.length; i++) {
-            map.put(primes[i], 0);
-        }
-
+        int[] indexArray = new int[primes.length];
         int[] ugly = new int[n];
         ugly[0] = 1;
 
-        int minNum = 1;
         for (int i = 1; i < n; i++) {
-
-            int[] minNums = new int[primes.length];
+            int min = 1;
+            int[] bucket = new int[primes.length];
             for (int j = 0; j < primes.length; j++) {
-                minNums[j] = ugly[map.get(primes[j])] * primes[j];
+                bucket[j] = ugly[indexArray[j]] * primes[j];
             }
 
-            minNum = minNums[0];
-            for (int j = 1; j < minNums.length; j++) {
-                if (minNum > minNums[j]) {
-                    minNum = minNums[j];
+            min = bucket[0];
+            for (int j = 1; j < bucket.length; j++) {
+                if (min > bucket[j]) {
+                    min = bucket[j];
                 }
-            }
-            if (i == n - 1) {
-                return minNum;
             }
 
-            for (int j = 0; j < minNums.length; j++) {
-                if (minNum == minNums[j]) {
-                    map.put(primes[j], map.get(primes[j]) + 1);
+            for (int j = 0; j < bucket.length; j++) {
+                if (min == bucket[j]) {
+                    indexArray[j] = indexArray[j] + 1;
                 }
             }
-            ugly[i] = minNum;
+            ugly[i] = min;
         }
-        return minNum;
+        return ugly[n - 1];
     }
 }
