@@ -15,7 +15,7 @@ import java.util.Map;
  * @author KoviChen
  * @version 0.0.1 20190917 KoviChen 新建类
  */
-public class Allgorithm0006_LintCode0518_SuperUglyNum {
+public class Algorithm0006_LintCode0518_SuperUglyNum {
 
     @Test
     public void test() {

@@ -12,7 +12,7 @@ import org.junit.jupiter.api.Test;
  * @author KoviChen
  * @version 0.0.1 20190917 KoviChen x新建类
  */
-public class Allgorithm0005_LintCode0004_UglyNum2 {
+public class Algorithm0005_LintCode0004_UglyNum2 {
 
     @Test
     public void test() {
