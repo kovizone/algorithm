@@ -33,7 +33,6 @@ public class Algorithm0011_LeetCode0415_AddStrings {
         while (p >= 0 || q >= 0) {
             int number1 = p >= 0 ? chars1[p--] : 48;
             int number2 = q >= 0 ? chars2[q--] : 48;
-            System.out.println(String.format("number1: %d, number2: %d", number1 - 48, number2 - 48));
             int num = number1 + number2 + carry - 96;
             carry = num / 10;
             result.insert(0, num % 10);
