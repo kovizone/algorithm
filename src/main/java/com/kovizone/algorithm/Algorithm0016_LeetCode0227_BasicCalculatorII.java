@@ -15,10 +15,17 @@ public class Algorithm0016_LeetCode0227_BasicCalculatorII {
     @Test
     public void test() {
         String s = "";
-        s = "1-(2-(1-2))";
+        s = "3*12/1-2";
         System.out.println(String.format("%s = %d", s, calculate(s)));
+        //System.out.println('9' - 0);
     }
 
+    /**
+     * 空间 O(1)
+     * 时间 O(n)
+     * @param s
+     * @return
+     */
     public int calculate(String s) {
         char[] numbers = s.toCharArray();
 
@@ -27,51 +34,41 @@ public class Algorithm0016_LeetCode0227_BasicCalculatorII {
 
         //运算符
         char operator = '+';
-
-        // 栈
-        char[] stack = new char[numbers.length / 2];
-        int stackTop = 0;
+        char operatorTemp = ' ';
 
         int num = 0;
+        int numTemp = 0;
 
         for (int i = 0; i < numbers.length; i++) {
             char point = numbers[i];
             if (point >= 48 && point <= 57) {
                 num = num * 10 + (point - 48);
             } else if (point != ' ') {
-                result = compute(result, operator, num);
-                num = 0;
-            }
-            if (point == '+') {
-                if (stackTop > 0) {
-                    if (stack[stackTop - 1] == '-') {
-                        operator = '-';
-                    }
-                    if (stack[stackTop - 1] == '+') {
-                        operator = '+';
-                    }
-                } else {
-                    operator = '+';
+                if (operatorTemp != ' ') {
+                    num = compute(numTemp, operatorTemp, num);
+                    operatorTemp = ' ';
+                    numTemp = 0;
                 }
+                if (point != '*' && point != '/') {
+                    result = compute(result, operator, num);
+                    num = 0;
+                }
+            }
+            if (point == '*' || point == '/') {
+                numTemp = num;
+                num = 0;
+                operatorTemp = point;
+            }
+
+            if (point == '+') {
+                operator = '+';
             }
             if (point == '-') {
-                if (stackTop > 0) {
-                    if (stack[stackTop - 1] == '-') {
-                        operator = '+';
-                    }
-                    if (stack[stackTop - 1] == '+') {
-                        operator = '-';
-                    }
-                } else {
-                    operator = '-';
-                }
+                operator = '-';
             }
-            if (point == '(') {
-                stack[stackTop++] = operator;
-            }
-            if (point == ')') {
-                stackTop--;
-            }
+        }
+        if (operatorTemp != ' ') {
+            num = compute(numTemp, operatorTemp, num);
         }
         return compute(result, operator, num);
     }
@@ -90,6 +87,12 @@ public class Algorithm0016_LeetCode0227_BasicCalculatorII {
             }
             if (operator == '-') {
                 return left - right;
+            }
+            if (operator == '*') {
+                return left * right;
+            }
+            if (operator == '/') {
+                return left / right;
             }
         }
         return left;
