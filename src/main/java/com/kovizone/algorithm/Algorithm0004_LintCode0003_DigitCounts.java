@@ -13,8 +13,8 @@ public class Algorithm0004_LintCode0003_DigitCounts {
     @Test
     public void test() {
 
-        int k = 2;
-        int n = 15615758;
+        int k = 1;
+        int n = 1000;
 
         long start;
 
