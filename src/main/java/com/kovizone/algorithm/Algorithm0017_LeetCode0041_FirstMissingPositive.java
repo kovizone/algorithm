@@ -6,7 +6,7 @@ public class Algorithm0017_LeetCode0041_FirstMissingPositive {
 
     @Test
     public void test() {
-        int[] nums = new int[]{1, 2, 0};
+        int[] nums = new int[]{0, 1, 4, 6, 5};
         System.out.println(firstMissingPositive(nums));
     }
 
