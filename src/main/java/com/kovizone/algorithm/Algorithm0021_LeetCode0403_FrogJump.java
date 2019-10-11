@@ -24,7 +24,7 @@ public class Algorithm0021_LeetCode0403_FrogJump {
     }
 
     /**
-     * 超时
+     *
      * @param stones 单元格集
      * @param index 青蛙所在索引
      * @param lastStep 上一次的步数
