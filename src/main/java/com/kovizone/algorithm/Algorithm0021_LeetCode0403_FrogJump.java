@@ -35,9 +35,6 @@ public class Algorithm0021_LeetCode0403_FrogJump {
         if (index == stones.length - 1) {
             return true;
         }
-        if (index >= stones.length) {
-            return false;
-        }
 
         for (int i = index + 1; i < stones.length; i++) {
             int step = stones[i] - stones[index];
@@ -46,15 +43,10 @@ public class Algorithm0021_LeetCode0403_FrogJump {
                 return false;
             }
 
-            if (num == 0 || num == 1 || num == -1) {
-                if (!memo[index][step]) {
-                    memo[index][step] = true;
-                    System.out.println("从" + stones[index] + "移动到" + stones[i] + "，需要" + step + "步");
-                    if (method(stones, i, step, memo)) {
-                        return true;
-                    }
-                } else {
-                    System.out.println("从" + stones[index] + "移动到" + stones[i] + "，已经遭遇");
+            if (num >= -1 && !memo[index][step]) {
+                memo[index][step] = true;
+                if (method(stones, i, step, memo)) {
+                    return true;
                 }
             }
         }
